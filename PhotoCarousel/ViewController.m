@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "PhotoCarouselViewController.h"
+#import "CollectionViewController.h"
 
 @interface ViewController ()
 
@@ -17,6 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+- (IBAction)gotoPhotoCarousel:(id)sender {
+    UICollectionViewFlowLayout *fLayout=[[UICollectionViewFlowLayout alloc] init];
+    PhotoCarouselViewController *pcvController=[[PhotoCarouselViewController alloc] initWithCollectionViewLayout:fLayout];
+    //CollectionViewController *pcvController=[[CollectionViewController alloc] initWithCollectionViewLayout:fLayout];
+    //[self presentViewController:pcvController animated:YES completion:nil];
+    
+    UIViewController *rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    [rootViewController presentViewController:pcvController animated:NO completion:nil];
+
 }
 
 - (void)didReceiveMemoryWarning {

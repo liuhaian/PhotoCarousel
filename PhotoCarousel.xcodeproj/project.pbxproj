@@ -14,6 +14,9 @@
 		F5328F731A720F65005E98AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5328F721A720F65005E98AD /* Images.xcassets */; };
 		F5328F761A720F65005E98AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5328F741A720F65005E98AD /* LaunchScreen.xib */; };
 		F5328F821A720F68005E98AD /* PhotoCarouselTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5328F811A720F68005E98AD /* PhotoCarouselTests.m */; };
+		F5328F901A725245005E98AD /* CarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5328F8F1A725245005E98AD /* CarouselView.m */; };
+		F5328F931A7272C9005E98AD /* PhotoCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5328F921A7272C9005E98AD /* PhotoCarouselViewController.m */; };
+		F5328F961A727B96005E98AD /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5328F951A727B96005E98AD /* CollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		F5328F7B1A720F68005E98AD /* PhotoCarouselTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoCarouselTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5328F801A720F68005E98AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5328F811A720F68005E98AD /* PhotoCarouselTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCarouselTests.m; sourceTree = "<group>"; };
+		F5328F8E1A725244005E98AD /* CarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselView.h; sourceTree = "<group>"; };
+		F5328F8F1A725245005E98AD /* CarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselView.m; sourceTree = "<group>"; };
+		F5328F911A7272C8005E98AD /* PhotoCarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCarouselViewController.h; sourceTree = "<group>"; };
+		F5328F921A7272C9005E98AD /* PhotoCarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCarouselViewController.m; sourceTree = "<group>"; };
+		F5328F941A727B96005E98AD /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		F5328F951A727B96005E98AD /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +94,13 @@
 				F5328F6A1A720F64005E98AD /* AppDelegate.m */,
 				F5328F6C1A720F64005E98AD /* ViewController.h */,
 				F5328F6D1A720F64005E98AD /* ViewController.m */,
+				F5328F911A7272C8005E98AD /* PhotoCarouselViewController.h */,
+				F5328F921A7272C9005E98AD /* PhotoCarouselViewController.m */,
 				F5328F6F1A720F64005E98AD /* Main.storyboard */,
+				F5328F941A727B96005E98AD /* CollectionViewController.h */,
+				F5328F951A727B96005E98AD /* CollectionViewController.m */,
+				F5328F8E1A725244005E98AD /* CarouselView.h */,
+				F5328F8F1A725245005E98AD /* CarouselView.m */,
 				F5328F721A720F65005E98AD /* Images.xcassets */,
 				F5328F741A720F65005E98AD /* LaunchScreen.xib */,
 				F5328F651A720F64005E98AD /* Supporting Files */,
@@ -221,6 +236,9 @@
 			files = (
 				F5328F6E1A720F64005E98AD /* ViewController.m in Sources */,
 				F5328F6B1A720F64005E98AD /* AppDelegate.m in Sources */,
+				F5328F961A727B96005E98AD /* CollectionViewController.m in Sources */,
+				F5328F901A725245005E98AD /* CarouselView.m in Sources */,
+				F5328F931A7272C9005E98AD /* PhotoCarouselViewController.m in Sources */,
 				F5328F681A720F64005E98AD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
