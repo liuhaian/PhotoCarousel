@@ -92,6 +92,23 @@ static NSString * const reuseIdentifier = @"Cell";
     CGPoint offset = CGPointMake(cell.center.x - collectionViewWidth / 2, 0);
     [collectionView setContentOffset:offset animated:YES];
 
+    NSIndexPath *nextItem = [NSIndexPath indexPathForItem:indexPath.item + 1 inSection:indexPath.section];
+    PhotoCarouselCell *nextCell = (PhotoCarouselCell *)[collectionView cellForItemAtIndexPath:nextItem];
+    [UIView animateWithDuration:1.0
+                          delay:0
+                        options:(UIViewAnimationOptionAllowUserInteraction)
+                     animations:^{
+                         NSLog(@"animation start");
+                         //[nextCell setBackgroundColor:[UIColor colorWithRed: 180.0/255.0 green: 238.0/255.0 blue:180.0/255.0 alpha: 1.0]];
+                         //nextCell.selectedIconView.center=CGPointMake(nextCell.selectedIconView.center.x-200,nextCell.selectedIconView.center.y);
+                         nextCell.selectedIconView.frame =CGRectMake(0, cell.frame.size.height - 45, 45, 45);
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"animation end");
+                         [nextCell setBackgroundColor:[UIColor whiteColor]];
+                     }
+     ];
+
 
 }
 
@@ -118,7 +135,11 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (PhotoCarouselCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCarouselCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
+    CGRect cellRect = [self.collectionView convertRect:cell.frame toView:self.collectionView.superview];
+    CGRect collectionVisualRect=self.collectionView.frame;
+    if(cellRect.origin.x+cellRect.size.width>collectionVisualRect.size.width){
+        [cell setSelectIconCenter:(collectionVisualRect.size.width-cellRect.origin.x)];
+    }
     // Configure the cell
     //cell.backgroundColor=[UIColor greenColor];
     

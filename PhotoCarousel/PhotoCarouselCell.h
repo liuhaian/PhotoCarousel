@@ -10,6 +10,9 @@
 
 @interface PhotoCarouselCell : UICollectionViewCell
 @property (strong, nonatomic) UIImageView *photoView;
-@property (strong, nonatomic) UIImageView *ifSelected;
+@property (strong, nonatomic) UIImageView *selectedIconView;
+@property Boolean ifSelected;
+
+-(void)setSelectIconCenter:(CGFloat)xPos;
 
 @end
