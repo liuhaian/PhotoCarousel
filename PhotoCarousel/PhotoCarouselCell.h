@@ -13,6 +13,6 @@
 @property (strong, nonatomic) UIImageView *selectedIconView;
 @property Boolean ifSelected;
 
--(void)setSelectIconCenter:(CGFloat)xPos;
+-(void)setSelectIconCenter:(BOOL)toLeft;
 
 @end

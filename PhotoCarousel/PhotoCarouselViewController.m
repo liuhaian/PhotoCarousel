@@ -138,7 +138,9 @@ static NSString * const reuseIdentifier = @"Cell";
     CGRect cellRect = [self.collectionView convertRect:cell.frame toView:self.collectionView.superview];
     CGRect collectionVisualRect=self.collectionView.frame;
     if(cellRect.origin.x+cellRect.size.width>collectionVisualRect.size.width){
-        [cell setSelectIconCenter:(collectionVisualRect.size.width-cellRect.origin.x)];
+        [cell setSelectIconCenter:YES];
+    }else{
+        [cell setSelectIconCenter:NO];
     }
     // Configure the cell
     //cell.backgroundColor=[UIColor greenColor];
