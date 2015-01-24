@@ -33,7 +33,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     layout.minimumInteritemSpacing=1000.0f;
     layout.minimumLineSpacing=20.0f;
-    [layout setItemSize:CGSizeMake(320, 240)];
+    [layout setItemSize:CGSizeMake(240, 240)];
     self.collectionView=[[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
     [self.collectionView setDataSource:self];
     [self.collectionView setDelegate:self];
@@ -41,6 +41,7 @@ static NSString * const reuseIdentifier = @"Cell";
     //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView registerClass:[PhotoCarouselCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
+    [self.collectionView setUserInteractionEnabled:YES];
     
 //    [self.view addSubview:_collectionView];
     
@@ -66,7 +67,32 @@ static NSString * const reuseIdentifier = @"Cell";
 */
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(320, 240);
+    return CGSizeMake(240, 240);
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return YES;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PhotoCarouselCell *cell = (PhotoCarouselCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    //cell.backgroundColor = [UIColor whiteColor];
+    NSLog(@"Cell center is %f", cell.center.x);
+
+//    NSArray *visibleItems = [self.collectionView indexPathsForVisibleItems];
+//    NSIndexPath *currentItem = [visibleItems objectAtIndex:0];
+//    NSIndexPath *nextItem = [NSIndexPath indexPathForItem:currentItem.item + 1 inSection:currentItem.section];
+//    NSIndexPath *nextItem = [NSIndexPath indexPathForItem:indexPath.item + 1 inSection:indexPath.section];
+//    [self.collectionView scrollToItemAtIndexPath:nextItem atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+    
+    CGFloat collectionViewWidth = CGRectGetWidth(self.collectionView.frame);
+    [collectionView setContentInset:UIEdgeInsetsMake(collectionViewWidth / 2, 0, collectionViewWidth / 2, 0)];
+    CGPoint offset = CGPointMake(cell.center.x - collectionViewWidth / 2, 0);
+    [collectionView setContentOffset:offset animated:YES];
+
+
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -109,12 +135,12 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 */
 
-/*
+//*
 // Uncomment this method to specify if the specified item should be selected
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-*/
+// */
 
 /*
 // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
