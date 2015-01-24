@@ -7,6 +7,7 @@
 //
 
 #import "PhotoCarouselViewController.h"
+#import "PhotoCarouselCell.h"
 
 @interface PhotoCarouselViewController ()
 {
@@ -37,7 +38,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView setDataSource:self];
     [self.collectionView setDelegate:self];
     
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[PhotoCarouselCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     
 //    [self.view addSubview:_collectionView];
@@ -77,7 +79,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 15;
 }
-
+/*
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
@@ -86,6 +88,17 @@ static NSString * const reuseIdentifier = @"Cell";
     
     return cell;
 }
+ // */
+
+- (PhotoCarouselCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    PhotoCarouselCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    // Configure the cell
+    //cell.backgroundColor=[UIColor greenColor];
+    
+    return cell;
+}
+
 
 #pragma mark <UICollectionViewDelegate>
 
