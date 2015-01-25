@@ -143,7 +143,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (PhotoCarouselCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCarouselCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    //CGRect cellRect = [self.collectionView convertRect:cell.frame toView:self.collectionView.superview];
+    /* move the following to DidScroll
     CGRect cellRect = [self.collectionView convertRect:cell.frame toView:self.collectionView];
     CGRect collectionVisualRect=self.collectionView.frame;
     if(cellRect.origin.x+cellRect.size.width>collectionVisualRect.size.width){
@@ -151,8 +151,9 @@ static NSString * const reuseIdentifier = @"Cell";
     }else{
         [cell setSelectIconCenter:NO];
     }
+    // */
     // Configure the cell
-    //cell.backgroundColor=[UIColor greenColor];
+
     
     return cell;
 }
@@ -188,5 +189,43 @@ static NSString * const reuseIdentifier = @"Cell";
 	
 }
 */
+# pragma mart <UISCrollViewDelegate>
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
+    // Animation code here.
+    NSArray *visibleItems = [self.collectionView indexPathsForVisibleItems];
+    /* Comment the following as it seems the order is messed up
+    NSIndexPath *firstItem = [visibleItems objectAtIndex:0];
+    PhotoCarouselCell *firstCell = (PhotoCarouselCell *)[self.collectionView cellForItemAtIndexPath:firstItem];
+    [firstCell setSelectIconCenter:YES];
+    NSLog(@"First cell center %f",firstCell.center.x);
+
+    
+    if(visibleItems.count==3){
+        NSIndexPath *middleItem = [visibleItems objectAtIndex:1];
+        PhotoCarouselCell *middleCell = (PhotoCarouselCell *)[self.collectionView cellForItemAtIndexPath:middleItem];
+        [middleCell setSelectIconCenter:YES];
+        NSLog(@"Middle cell center %f",middleCell.center.x);
+        
+    }
+
+    NSIndexPath *lastItem = [visibleItems lastObject];
+    PhotoCarouselCell *lastCell = (PhotoCarouselCell *)[self.collectionView cellForItemAtIndexPath:lastItem];
+    [lastCell setSelectIconCenter:NO];
+    NSLog(@"Last cell center %f",lastCell.center.x);
+    // */
+    for (NSIndexPath* item in visibleItems) {
+        PhotoCarouselCell *cell = (PhotoCarouselCell *)[self.collectionView cellForItemAtIndexPath:item];
+        float rightX=self.collectionView.contentOffset.x+self.collectionView.frame.size.width;
+        float cellRight=cell.center.x+cell.frame.size.width/2;
+        if(rightX<cellRight){
+            [cell setSelectIconCenter:YES];
+        }else{
+            [cell setSelectIconCenter:NO];
+        }
+        
+    }
+
+    NSLog(@"scrollViewDidScroll");
+}
 
 @end
