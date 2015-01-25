@@ -8,6 +8,7 @@
 
 #import "PhotoCarouselViewController.h"
 #import "PhotoCarouselCell.h"
+#import "AppRecord.h"
 
 @interface PhotoCarouselViewController ()
 {
@@ -42,6 +43,10 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[PhotoCarouselCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     [self.collectionView setUserInteractionEnabled:YES];
+    
+    if(self.appRecordEntries==nil){
+        self.appRecordEntries=[[NSMutableArray alloc] initWithCapacity:15];
+    }
     
     // Do any additional setup after loading the view.
 }
@@ -105,7 +110,14 @@ static NSString * const reuseIdentifier = @"Cell";
     CGPoint offset = CGPointMake(cell.center.x - collectionViewWidth / 2, 0);
     float cellToCenter=self.collectionView.contentOffset.x+self.collectionView.frame.size.width/2-cell.center.x;
     if(abs(cellToCenter)<5){
-        [cell toggleSelected];
+        AppRecord *appRecord=[self.appRecordEntries objectAtIndex:indexPath.row];
+        if(appRecord.isSelected){
+            [cell toggleSelected:NO];
+            appRecord.isSelected=NO;
+        }else{
+            [cell toggleSelected:YES];
+            appRecord.isSelected=YES;
+        }
     }else{
         [collectionView setContentOffset:offset animated:YES];
     }
@@ -140,7 +152,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 15;
+    return self.appRecordEntries.count;
 }
 /*
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -165,7 +177,9 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     // */
     // Configure the cell
-
+    AppRecord *appRecord=[self.appRecordEntries objectAtIndex:indexPath.row];
+    [cell setImage:appRecord.image];
+    [cell toggleSelected:appRecord.isSelected];
     
     return cell;
 }

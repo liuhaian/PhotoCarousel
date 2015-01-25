@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotoCarouselViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+@property (nonatomic, strong) NSMutableArray *appRecordEntries;
 
 @end

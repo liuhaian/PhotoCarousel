@@ -21,6 +21,7 @@
 		F5680CBD1A73609E0036E828 /* DSC00592.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F5680CBC1A73609E0036E828 /* DSC00592.JPG */; };
 		F5680CC01A7377220036E828 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = F5680CBE1A7377220036E828 /* selected.png */; };
 		F5680CC31A73781D0036E828 /* notSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F5680CC21A73781D0036E828 /* notSelected.png */; };
+		F5680CC61A74B3770036E828 /* AppRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5680CC51A74B3770036E828 /* AppRecord.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		F5680CBC1A73609E0036E828 /* DSC00592.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DSC00592.JPG; sourceTree = "<group>"; };
 		F5680CBE1A7377220036E828 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
 		F5680CC21A73781D0036E828 /* notSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = notSelected.png; path = PhotoCarousel/notSelected.png; sourceTree = "<group>"; };
+		F5680CC41A74B3770036E828 /* AppRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppRecord.h; sourceTree = "<group>"; };
+		F5680CC51A74B3770036E828 /* AppRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppRecord.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				F5680CB91A7359DA0036E828 /* PhotoCarouselCell.h */,
 				F5680CBA1A7359DA0036E828 /* PhotoCarouselCell.m */,
 				F5680CBE1A7377220036E828 /* selected.png */,
+				F5680CC41A74B3770036E828 /* AppRecord.h */,
+				F5680CC51A74B3770036E828 /* AppRecord.m */,
 			);
 			path = PhotoCarousel;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				F5328F961A727B96005E98AD /* CollectionViewController.m in Sources */,
 				F5328F901A725245005E98AD /* CarouselView.m in Sources */,
 				F5328F931A7272C9005E98AD /* PhotoCarouselViewController.m in Sources */,
+				F5680CC61A74B3770036E828 /* AppRecord.m in Sources */,
 				F5328F681A720F64005E98AD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,9 +11,10 @@
 @interface PhotoCarouselCell : UICollectionViewCell
 @property (strong, nonatomic) UIImageView *photoView;
 @property (strong, nonatomic) UIImageView *selectedIconView;
-@property Boolean ifSelected;
+//@property Boolean ifSelected;
 
 -(void)setSelectIconCenter:(BOOL)toLeft shouldAlignToRightEdge:(CGFloat)rightEdge;
--(void)toggleSelected;
+-(void)toggleSelected:(BOOL)ifSelected;
+-(void)setImage:(UIImage*)img;
 
 @end
