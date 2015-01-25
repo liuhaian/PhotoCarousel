@@ -14,5 +14,6 @@
 @property Boolean ifSelected;
 
 -(void)setSelectIconCenter:(BOOL)toLeft;
+-(void)toggleSelected;
 
 @end

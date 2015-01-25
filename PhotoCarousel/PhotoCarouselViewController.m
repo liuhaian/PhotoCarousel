@@ -12,6 +12,7 @@
 @interface PhotoCarouselViewController ()
 {
     //UICollectionView *_collectionView;
+    CGPoint currentOffset;
 }
 
 @end
@@ -88,10 +89,16 @@ static NSString * const reuseIdentifier = @"Cell";
 //    [self.collectionView scrollToItemAtIndexPath:nextItem atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
     
     CGFloat collectionViewWidth = CGRectGetWidth(self.collectionView.frame);
-    [collectionView setContentInset:UIEdgeInsetsMake(collectionViewWidth / 2, 0, collectionViewWidth / 2, 0)];
+   // [collectionView setContentInset:UIEdgeInsetsMake(collectionViewWidth / 2, 0, collectionViewWidth / 2, 0)];
     CGPoint offset = CGPointMake(cell.center.x - collectionViewWidth / 2, 0);
-    [collectionView setContentOffset:offset animated:YES];
+    float cellToCenter=self.collectionView.contentOffset.x+self.collectionView.frame.size.width/2-cell.center.x;
+    if(abs(cellToCenter)<5){
+        [cell toggleSelected];
+    }else{
+        [collectionView setContentOffset:offset animated:YES];
+    }
 
+    /* delete the following as we have achieved it in Cell class
     NSIndexPath *nextItem = [NSIndexPath indexPathForItem:indexPath.item + 1 inSection:indexPath.section];
     PhotoCarouselCell *nextCell = (PhotoCarouselCell *)[collectionView cellForItemAtIndexPath:nextItem];
     [UIView animateWithDuration:1.0
@@ -108,6 +115,7 @@ static NSString * const reuseIdentifier = @"Cell";
                          [nextCell setBackgroundColor:[UIColor whiteColor]];
                      }
      ];
+    // */
 
 
 }
@@ -135,7 +143,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (PhotoCarouselCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCarouselCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    CGRect cellRect = [self.collectionView convertRect:cell.frame toView:self.collectionView.superview];
+    //CGRect cellRect = [self.collectionView convertRect:cell.frame toView:self.collectionView.superview];
+    CGRect cellRect = [self.collectionView convertRect:cell.frame toView:self.collectionView];
     CGRect collectionVisualRect=self.collectionView.frame;
     if(cellRect.origin.x+cellRect.size.width>collectionVisualRect.size.width){
         [cell setSelectIconCenter:YES];

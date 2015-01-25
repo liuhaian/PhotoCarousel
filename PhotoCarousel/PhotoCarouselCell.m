@@ -21,7 +21,28 @@
         
         self.selectedIconView = [[UIImageView alloc] init];
         [self.contentView insertSubview:self.photoView atIndex:4];
+        self.ifSelected=NO;
         
+        if (self.ifSelected) {
+            // /*
+            //self.photoView.frame =CGRectMake(0, 0, 140, self.bounds.size.height - self.ifSelected.bounds.size.height);
+            self.photoView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+            [self.photoView setContentScaleFactor:UIViewContentModeScaleAspectFit];
+            self.selectedIconView.image = [UIImage imageNamed:@"Selected.png"];
+            self.selectedIconView.frame =CGRectMake(self.frame.size.width - 45, self.frame.size.height - 45, 45, 45);
+            [self.contentView insertSubview:self.selectedIconView atIndex:2];
+            // */
+            
+        }
+        else{
+            NSLog(@"selected icon not shown.");
+            self.photoView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+            self.selectedIconView.image = [UIImage imageNamed:@"notSelected.png"];
+            self.selectedIconView.frame =CGRectMake(self.frame.size.width - 45, self.frame.size.height - 45, 45, 45);
+            [self.contentView insertSubview:self.selectedIconView atIndex:2];
+            
+        }
+
         self.layer.cornerRadius = 6.0;
         
     }
@@ -32,25 +53,6 @@
     
     [super layoutSubviews];
     
-    if (self.ifSelected) {
-        // /*
-        //self.photoView.frame =CGRectMake(0, 0, 140, self.bounds.size.height - self.ifSelected.bounds.size.height);
-        self.photoView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-        [self.photoView setContentScaleFactor:UIViewContentModeScaleAspectFit];
-        self.selectedIconView.image = [UIImage imageNamed:@"notSelected.png"];
-        self.selectedIconView.frame =CGRectMake(self.frame.size.width - 45, self.frame.size.height - 45, 45, 45);
-        [self.contentView insertSubview:self.selectedIconView atIndex:2];
-        // */
-        
-    }
-    else{
-        NSLog(@"selected icon not shown.");
-        self.photoView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-        self.selectedIconView.image = [UIImage imageNamed:@"Selected.png"];
-        self.selectedIconView.frame =CGRectMake(self.frame.size.width - 45, self.frame.size.height - 45, 45, 45);
-        [self.contentView insertSubview:self.selectedIconView atIndex:2];        
-        
-    }
     
 }
 
@@ -68,6 +70,18 @@
         [UIView animateWithDuration:0.1 animations:^{
             self.selectedIconView.center = CGPointMake(self.frame.size.width - self.selectedIconView.frame.size.width/2,self.selectedIconView.center.y);
         }];
+        
+    }
+}
+
+-(void)toggleSelected
+{
+    if (self.ifSelected){
+        self.selectedIconView.image = [UIImage imageNamed:@"notSelected.png"];
+        self.ifSelected=NO;
+    }else{
+        self.selectedIconView.image = [UIImage imageNamed:@"Selected.png"];
+        self.ifSelected=YES;
         
     }
 }
