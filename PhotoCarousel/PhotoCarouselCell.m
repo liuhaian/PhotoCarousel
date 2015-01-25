@@ -56,16 +56,23 @@
     
 }
 
--(void)setSelectIconCenter:(BOOL)toLeft
+-(void)setSelectIconCenter:(BOOL)toLeft shouldAlignToRightEdge:(CGFloat)rightEdge
 {
 //    [self.selectedIconView removeFromSuperview];
 //    //self.selectedIconView.center=CGPointMake(23,self.selectedIconView.center.y);
 //    self.selectedIconView.frame =CGRectMake(0, self.frame.size.height - 45, 45, 45);
 //    [self.contentView insertSubview:self.selectedIconView atIndex:2];
     if(toLeft){
-        [UIView animateWithDuration:0.1 animations:^{
-            self.selectedIconView.center = CGPointMake(self.selectedIconView.frame.size.width/2,self.selectedIconView.center.y);
-        }];
+        if(rightEdge<46){
+            [UIView animateWithDuration:0.1 animations:^{
+                self.selectedIconView.center = CGPointMake(self.selectedIconView.frame.size.width/2,self.selectedIconView.center.y);
+            }];
+        }else{
+            [UIView animateWithDuration:0.1 animations:^{
+                self.selectedIconView.center = CGPointMake(rightEdge-self.selectedIconView.frame.size.width/2,self.selectedIconView.center.y);
+            }];
+            
+        }
     }else{
         [UIView animateWithDuration:0.1 animations:^{
             self.selectedIconView.center = CGPointMake(self.frame.size.width - self.selectedIconView.frame.size.width/2,self.selectedIconView.center.y);

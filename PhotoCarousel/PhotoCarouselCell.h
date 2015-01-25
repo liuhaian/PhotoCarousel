@@ -13,7 +13,7 @@
 @property (strong, nonatomic) UIImageView *selectedIconView;
 @property Boolean ifSelected;
 
--(void)setSelectIconCenter:(BOOL)toLeft;
+-(void)setSelectIconCenter:(BOOL)toLeft shouldAlignToRightEdge:(CGFloat)rightEdge;
 -(void)toggleSelected;
 
 @end

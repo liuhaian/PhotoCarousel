@@ -215,12 +215,13 @@ static NSString * const reuseIdentifier = @"Cell";
     // */
     for (NSIndexPath* item in visibleItems) {
         PhotoCarouselCell *cell = (PhotoCarouselCell *)[self.collectionView cellForItemAtIndexPath:item];
-        float rightX=self.collectionView.contentOffset.x+self.collectionView.frame.size.width;
-        float cellRight=cell.center.x+cell.frame.size.width/2;
+        CGFloat rightX=self.collectionView.contentOffset.x+self.collectionView.frame.size.width;
+        CGFloat cellRight=cell.center.x+cell.frame.size.width/2;
+        CGFloat rigthEdge=rightX+cell.frame.size.width/2-cell.center.x;
         if(rightX<cellRight){
-            [cell setSelectIconCenter:YES];
+            [cell setSelectIconCenter:YES shouldAlignToRightEdge:rigthEdge];
         }else{
-            [cell setSelectIconCenter:NO];
+            [cell setSelectIconCenter:NO shouldAlignToRightEdge:rigthEdge];
         }
         
     }
