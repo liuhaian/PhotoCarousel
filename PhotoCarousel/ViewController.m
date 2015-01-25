@@ -26,7 +26,16 @@ static NSInteger count=0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getAllPictures];
+    // The following code will crash the app if there are a lot of photos in the device.
+    //[self getAllPictures];
+    // So we change it to bundle's image
+    mutableArray=[[NSMutableArray alloc] init];
+    for(int i=1;i<11;i++){
+        [mutableArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%d.JPG",i]]];
+        //[mutableArray addObject:[UIImage imageNamed:@"1.JPG"]];
+    }
+    imageArray=[[NSArray alloc] initWithArray:mutableArray];
+    [self allPhotosCollected:imageArray];
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)gotoPhotoCarousel:(id)sender {

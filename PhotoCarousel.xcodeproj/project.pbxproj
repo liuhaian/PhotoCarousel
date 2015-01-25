@@ -15,12 +15,21 @@
 		F5328F761A720F65005E98AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5328F741A720F65005E98AD /* LaunchScreen.xib */; };
 		F5328F821A720F68005E98AD /* PhotoCarouselTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5328F811A720F68005E98AD /* PhotoCarouselTests.m */; };
 		F5328F931A7272C9005E98AD /* PhotoCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5328F921A7272C9005E98AD /* PhotoCarouselViewController.m */; };
-		F5328F961A727B96005E98AD /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5328F951A727B96005E98AD /* CollectionViewController.m */; };
+		F55243C91A750BC90008B0CE /* 1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F55243BB1A7508040008B0CE /* 1.JPG */; };
+		F55243CB1A750C320008B0CE /* 5.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F55243B51A7508040008B0CE /* 5.JPG */; };
+		F55243CC1A750C320008B0CE /* 6.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F55243B61A7508040008B0CE /* 6.JPG */; };
+		F55243CD1A750C320008B0CE /* 7.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F55243B71A7508040008B0CE /* 7.JPG */; };
+		F55243CE1A750C320008B0CE /* 8.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F55243B81A7508040008B0CE /* 8.JPG */; };
+		F55243CF1A750C320008B0CE /* 9.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F55243B91A7508040008B0CE /* 9.JPG */; };
+		F55243D01A750C320008B0CE /* 10.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F55243BA1A7508040008B0CE /* 10.JPG */; };
+		F55243D11A750C320008B0CE /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F55243BC1A7508040008B0CE /* 2.JPG */; };
+		F55243D21A750C320008B0CE /* 4.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F55243BD1A7508040008B0CE /* 4.JPG */; };
+		F55243D41A750E020008B0CE /* 3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F55243D31A750E020008B0CE /* 3.JPG */; };
+		F55243D51A750FCB0008B0CE /* notSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F5680CC21A73781D0036E828 /* notSelected.png */; };
+		F55243D61A750FCB0008B0CE /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F5680CC71A74C52C0036E828 /* Loading.png */; };
+		F55243D71A750FCB0008B0CE /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = F5680CBE1A7377220036E828 /* selected.png */; };
 		F5680CBB1A7359DA0036E828 /* PhotoCarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5680CBA1A7359DA0036E828 /* PhotoCarouselCell.m */; };
-		F5680CC01A7377220036E828 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = F5680CBE1A7377220036E828 /* selected.png */; };
-		F5680CC31A73781D0036E828 /* notSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F5680CC21A73781D0036E828 /* notSelected.png */; };
 		F5680CC61A74B3770036E828 /* AppRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5680CC51A74B3770036E828 /* AppRecord.m */; };
-		F5680CC81A74C52C0036E828 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F5680CC71A74C52C0036E828 /* Loading.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +58,16 @@
 		F5328F811A720F68005E98AD /* PhotoCarouselTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCarouselTests.m; sourceTree = "<group>"; };
 		F5328F911A7272C8005E98AD /* PhotoCarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCarouselViewController.h; sourceTree = "<group>"; };
 		F5328F921A7272C9005E98AD /* PhotoCarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCarouselViewController.m; sourceTree = "<group>"; };
-		F5328F941A727B96005E98AD /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
-		F5328F951A727B96005E98AD /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		F55243B51A7508040008B0CE /* 5.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.JPG; sourceTree = "<group>"; };
+		F55243B61A7508040008B0CE /* 6.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.JPG; sourceTree = "<group>"; };
+		F55243B71A7508040008B0CE /* 7.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.JPG; sourceTree = "<group>"; };
+		F55243B81A7508040008B0CE /* 8.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.JPG; sourceTree = "<group>"; };
+		F55243B91A7508040008B0CE /* 9.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.JPG; sourceTree = "<group>"; };
+		F55243BA1A7508040008B0CE /* 10.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.JPG; sourceTree = "<group>"; };
+		F55243BB1A7508040008B0CE /* 1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.JPG; sourceTree = "<group>"; };
+		F55243BC1A7508040008B0CE /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.JPG; sourceTree = "<group>"; };
+		F55243BD1A7508040008B0CE /* 4.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.JPG; sourceTree = "<group>"; };
+		F55243D31A750E020008B0CE /* 3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.JPG; path = Photos/3.JPG; sourceTree = "<group>"; };
 		F5680CB91A7359DA0036E828 /* PhotoCarouselCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCarouselCell.h; sourceTree = "<group>"; };
 		F5680CBA1A7359DA0036E828 /* PhotoCarouselCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCarouselCell.m; sourceTree = "<group>"; };
 		F5680CBE1A7377220036E828 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
@@ -81,6 +98,8 @@
 		F5328F591A720F63005E98AD = {
 			isa = PBXGroup;
 			children = (
+				F55243D31A750E020008B0CE /* 3.JPG */,
+				F55243B31A7508040008B0CE /* Photos */,
 				F5328F641A720F64005E98AD /* PhotoCarousel */,
 				F5328F7E1A720F68005E98AD /* PhotoCarouselTests */,
 				F5328F631A720F64005E98AD /* Products */,
@@ -105,8 +124,6 @@
 				F5328F6C1A720F64005E98AD /* ViewController.h */,
 				F5328F6D1A720F64005E98AD /* ViewController.m */,
 				F5328F6F1A720F64005E98AD /* Main.storyboard */,
-				F5328F941A727B96005E98AD /* CollectionViewController.h */,
-				F5328F951A727B96005E98AD /* CollectionViewController.m */,
 				F5328F721A720F65005E98AD /* Images.xcassets */,
 				F5328F741A720F65005E98AD /* LaunchScreen.xib */,
 				F5328F651A720F64005E98AD /* Supporting Files */,
@@ -138,6 +155,22 @@
 				F5328F801A720F68005E98AD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F55243B31A7508040008B0CE /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				F55243B51A7508040008B0CE /* 5.JPG */,
+				F55243B61A7508040008B0CE /* 6.JPG */,
+				F55243B71A7508040008B0CE /* 7.JPG */,
+				F55243B81A7508040008B0CE /* 8.JPG */,
+				F55243B91A7508040008B0CE /* 9.JPG */,
+				F55243BA1A7508040008B0CE /* 10.JPG */,
+				F55243BB1A7508040008B0CE /* 1.JPG */,
+				F55243BC1A7508040008B0CE /* 2.JPG */,
+				F55243BD1A7508040008B0CE /* 4.JPG */,
+			);
+			path = Photos;
 			sourceTree = "<group>";
 		};
 		F5680CC91A74C5D20036E828 /* resources */ = {
@@ -244,11 +277,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F55243D51A750FCB0008B0CE /* notSelected.png in Resources */,
+				F55243D61A750FCB0008B0CE /* Loading.png in Resources */,
+				F55243D71A750FCB0008B0CE /* selected.png in Resources */,
+				F55243CB1A750C320008B0CE /* 5.JPG in Resources */,
+				F55243CC1A750C320008B0CE /* 6.JPG in Resources */,
+				F55243CD1A750C320008B0CE /* 7.JPG in Resources */,
+				F55243CE1A750C320008B0CE /* 8.JPG in Resources */,
+				F55243CF1A750C320008B0CE /* 9.JPG in Resources */,
+				F55243D01A750C320008B0CE /* 10.JPG in Resources */,
+				F55243D11A750C320008B0CE /* 2.JPG in Resources */,
+				F55243D41A750E020008B0CE /* 3.JPG in Resources */,
+				F55243D21A750C320008B0CE /* 4.JPG in Resources */,
+				F55243C91A750BC90008B0CE /* 1.JPG in Resources */,
 				F5328F711A720F64005E98AD /* Main.storyboard in Resources */,
-				F5680CC81A74C52C0036E828 /* Loading.png in Resources */,
-				F5680CC31A73781D0036E828 /* notSelected.png in Resources */,
 				F5328F761A720F65005E98AD /* LaunchScreen.xib in Resources */,
-				F5680CC01A7377220036E828 /* selected.png in Resources */,
 				F5328F731A720F65005E98AD /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,7 +313,6 @@
 				F5328F6E1A720F64005E98AD /* ViewController.m in Sources */,
 				F5328F6B1A720F64005E98AD /* AppDelegate.m in Sources */,
 				F5680CBB1A7359DA0036E828 /* PhotoCarouselCell.m in Sources */,
-				F5328F961A727B96005E98AD /* CollectionViewController.m in Sources */,
 				F5328F931A7272C9005E98AD /* PhotoCarouselViewController.m in Sources */,
 				F5680CC61A74B3770036E828 /* AppRecord.m in Sources */,
 				F5328F681A720F64005E98AD /* main.m in Sources */,
@@ -396,6 +438,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PhotoCarousel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -406,6 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PhotoCarousel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
