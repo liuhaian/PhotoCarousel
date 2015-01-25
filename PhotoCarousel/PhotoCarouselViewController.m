@@ -11,8 +11,7 @@
 
 @interface PhotoCarouselViewController ()
 {
-    //UICollectionView *_collectionView;
-    CGPoint currentOffset;
+
 }
 
 @end
@@ -44,12 +43,25 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     [self.collectionView setUserInteractionEnabled:YES];
     
-//    [self.view addSubview:_collectionView];
-    
-    // Register cell classes
-    //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
     // Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSIndexPath* firstItemPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    // scroll to the cell
+    PhotoCarouselCell *firstcell = (PhotoCarouselCell *)[self.collectionView cellForItemAtIndexPath:firstItemPath];
+    CGFloat collectionViewWidth = CGRectGetWidth(self.collectionView.frame);
+    CGPoint offset = CGPointMake(firstcell.center.x - collectionViewWidth / 2, 0);
+    [self.collectionView setContentOffset:offset animated:YES];
+    /*[self.collectionView scrollToItemAtIndexPath:firstItemPath
+                                atScrollPosition:UICollectionViewScrollPositionBottom
+                                        animated:YES];
+    // */
+    
+
+
 }
 
 - (void)didReceiveMemoryWarning {
