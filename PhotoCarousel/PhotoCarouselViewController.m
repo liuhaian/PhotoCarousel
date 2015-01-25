@@ -12,7 +12,7 @@
 
 @interface PhotoCarouselViewController ()
 {
-
+    UIButton *button;
 }
 
 @end
@@ -45,8 +45,37 @@ static NSString * const reuseIdentifier = @"Cell";
     if(self.appRecordEntries==nil){
         self.appRecordEntries=[[NSMutableArray alloc] initWithCapacity:15];
     }
+    //Add a button over the collectionView
+    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self
+               action:@selector(showCount)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"Count" forState:UIControlStateNormal];
     
-    // Do any additional setup after loading the view.
+    UIWindow* window=[UIApplication sharedApplication].delegate.window;
+    button.frame = CGRectMake(window.center.x-80, window.frame.size.height-40,160.0, 40.0);
+    [window addSubview:button];
+
+}
+-(void)showCount{
+    NSString *msg=[NSString stringWithFormat:@"You have selected %ld cells", [self getSelectionCount]];
+    UIAlertView *alert = [[UIAlertView alloc]
+             initWithTitle:nil
+             message:msg
+             delegate:nil
+             cancelButtonTitle:@"OK"
+             otherButtonTitles:nil];
+    [alert show];
+
+}
+-(NSInteger)getSelectionCount{
+    NSInteger iReturnCount=0;
+    if(self.appRecordEntries!=nil){
+        for (AppRecord* appRecord in self.appRecordEntries) {
+            if(appRecord.isSelected)iReturnCount++;
+        }
+    }
+    return iReturnCount;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -89,6 +118,15 @@ static NSString * const reuseIdentifier = @"Cell";
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
+}
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+//    UIWindow* window=[UIApplication sharedApplication].delegate.window;
+    [UIView animateWithDuration:0.1 animations:^{
+        button.center = CGPointMake(self.collectionView.frame.size.width/2,self.collectionView.frame.size.height-40);
+    }];
+
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

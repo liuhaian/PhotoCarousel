@@ -100,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				F5680CCA1A74C6230036E828 /* source */,
-				F5680CC91A74C5D20036E828 /* resources */,
 				F5328F691A720F64005E98AD /* AppDelegate.h */,
 				F5328F6A1A720F64005E98AD /* AppDelegate.m */,
 				F5328F6C1A720F64005E98AD /* ViewController.h */,
@@ -154,6 +153,7 @@
 		F5680CCA1A74C6230036E828 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				F5680CC91A74C5D20036E828 /* resources */,
 				F5680CB91A7359DA0036E828 /* PhotoCarouselCell.h */,
 				F5680CBA1A7359DA0036E828 /* PhotoCarouselCell.m */,
 				F5680CC41A74B3770036E828 /* AppRecord.h */,
