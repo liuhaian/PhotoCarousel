@@ -16,7 +16,7 @@
     if (self) {
         // Initialization code
         self.photoView = [[UIImageView alloc] init];
-        self.photoView.image = [UIImage imageNamed:@"DSC00592.JPG"];
+        self.photoView.image = [UIImage imageNamed:@"Loading.png"];
         //[self.photoView setContentScaleFactor:UIViewContentModeScaleAspectFit];
         
         self.selectedIconView = [[UIImageView alloc] init];

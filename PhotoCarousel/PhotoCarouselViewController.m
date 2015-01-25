@@ -27,8 +27,6 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
-    //Create view programmingly
- //   self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
     [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
@@ -105,6 +103,7 @@ static NSString * const reuseIdentifier = @"Cell";
 //    NSIndexPath *nextItem = [NSIndexPath indexPathForItem:indexPath.item + 1 inSection:indexPath.section];
 //    [self.collectionView scrollToItemAtIndexPath:nextItem atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
     
+    //If the selected cell is in center of the window, toggle Selected or not state of the cell. Else just scroll the seleted view to center.
     CGFloat collectionViewWidth = CGRectGetWidth(self.collectionView.frame);
    // [collectionView setContentInset:UIEdgeInsetsMake(collectionViewWidth / 2, 0, collectionViewWidth / 2, 0)];
     CGPoint offset = CGPointMake(cell.center.x - collectionViewWidth / 2, 0);
@@ -167,7 +166,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (PhotoCarouselCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCarouselCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    /* move the following to DidScroll
+    /* move the following to scrollViewDidScroll
     CGRect cellRect = [self.collectionView convertRect:cell.frame toView:self.collectionView];
     CGRect collectionVisualRect=self.collectionView.frame;
     if(cellRect.origin.x+cellRect.size.width>collectionVisualRect.size.width){
@@ -219,7 +218,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     // Animation code here.
     NSArray *visibleItems = [self.collectionView indexPathsForVisibleItems];
-    /* Comment the following as it seems the order is messed up
+    /* Comment the following as the order is messed up
     NSIndexPath *firstItem = [visibleItems objectAtIndex:0];
     PhotoCarouselCell *firstCell = (PhotoCarouselCell *)[self.collectionView cellForItemAtIndexPath:firstItem];
     [firstCell setSelectIconCenter:YES];
@@ -239,6 +238,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [lastCell setSelectIconCenter:NO];
     NSLog(@"Last cell center %f",lastCell.center.x);
     // */
+    //Adjust the Selected icon position for only right most picture.
     for (NSIndexPath* item in visibleItems) {
         PhotoCarouselCell *cell = (PhotoCarouselCell *)[self.collectionView cellForItemAtIndexPath:item];
         CGFloat rightX=self.collectionView.contentOffset.x+self.collectionView.frame.size.width;
