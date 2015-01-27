@@ -8,6 +8,8 @@
 
 #import "PhotoCarouselCell.h"
 
+#define SELECT_ICON_WIDTH 23
+
 @implementation PhotoCarouselCell
 
 - (id)initWithFrame:(CGRect)frame
@@ -35,10 +37,10 @@
 //            
 //        }
 //        else{
-            NSLog(@"selected icon not shown.");
+//            NSLog(@"selected icon not shown.");
             self.photoView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
             self.selectedIconView.image = [UIImage imageNamed:@"notSelected.png"];
-            self.selectedIconView.frame =CGRectMake(self.frame.size.width - 45, self.frame.size.height - 45, 45, 45);
+            self.selectedIconView.frame =CGRectMake(self.frame.size.width - SELECT_ICON_WIDTH, self.frame.size.height - SELECT_ICON_WIDTH, SELECT_ICON_WIDTH, SELECT_ICON_WIDTH);
             [self.contentView insertSubview:self.selectedIconView atIndex:2];
             
 //        }
@@ -63,7 +65,7 @@
 //    self.selectedIconView.frame =CGRectMake(0, self.frame.size.height - 45, 45, 45);
 //    [self.contentView insertSubview:self.selectedIconView atIndex:2];
     if(toLeft){
-        if(rightEdge<46){
+        if(rightEdge<(SELECT_ICON_WIDTH+1)){
             [UIView animateWithDuration:0.1 animations:^{
                 self.selectedIconView.center = CGPointMake(self.selectedIconView.frame.size.width/2,self.selectedIconView.center.y);
             }];

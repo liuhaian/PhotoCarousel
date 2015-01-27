@@ -41,6 +41,7 @@ static NSInteger count=0;
 - (IBAction)gotoPhotoCarousel:(id)sender {
     UICollectionViewFlowLayout *fLayout=[[UICollectionViewFlowLayout alloc] init];
     PhotoCarouselViewController *pcvController=[[PhotoCarouselViewController alloc] initWithCollectionViewLayout:fLayout];
+    /* move the following to Carousel Controller viewDidLoad
     pcvController.appRecordEntries=[[NSMutableArray alloc] init];
     for (UIImage* img in imageArray) {
         AppRecord *appRecord=[[AppRecord alloc] init];
@@ -49,6 +50,7 @@ static NSInteger count=0;
         [pcvController.appRecordEntries addObject:appRecord];
         
     }
+     // */
     //CollectionViewController *pcvController=[[CollectionViewController alloc] initWithCollectionViewLayout:fLayout];
     //[self presentViewController:pcvController animated:YES completion:nil];
     

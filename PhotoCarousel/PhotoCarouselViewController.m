@@ -9,17 +9,32 @@
 #import "PhotoCarouselViewController.h"
 #import "PhotoCarouselCell.h"
 #import "AppRecord.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+
+#define CELL_WIDTH 120
+#define CELL_HEIGHT 120
+#define CELL_LINE_SPACE 10.0f
 
 @interface PhotoCarouselViewController ()
 {
     UIButton *button;
 }
+//@property(nonatomic, strong) NSArray *assets;
 
 @end
 
 @implementation PhotoCarouselViewController
 
 static NSString * const reuseIdentifier = @"Cell";
++ (ALAssetsLibrary *)defaultAssetsLibrary
+{
+    static dispatch_once_t pred = 0;
+    static ALAssetsLibrary *library = nil;
+    dispatch_once(&pred, ^{
+        library = [[ALAssetsLibrary alloc] init];
+    });
+    return library;
+}
 
 - (void)viewDidLoad {
     
@@ -31,8 +46,8 @@ static NSString * const reuseIdentifier = @"Cell";
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
     [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     layout.minimumInteritemSpacing=1000.0f;
-    layout.minimumLineSpacing=20.0f;
-    [layout setItemSize:CGSizeMake(240, 240)];
+    layout.minimumLineSpacing=CELL_LINE_SPACE;
+    [layout setItemSize:CGSizeMake(CELL_WIDTH, CELL_HEIGHT)];
     self.collectionView=[[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
     [self.collectionView setDataSource:self];
     [self.collectionView setDelegate:self];
@@ -41,10 +56,52 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[PhotoCarouselCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     [self.collectionView setUserInteractionEnabled:YES];
-    
+
     if(self.appRecordEntries==nil){
-        self.appRecordEntries=[[NSMutableArray alloc] initWithCapacity:15];
+        self.appRecordEntries=[[NSMutableArray alloc] init];
     }
+    
+    //To test on a device with a lot of photos
+ //   _assets = [@[] mutableCopy];
+ //   __block NSMutableArray *tmpAssets = [@[] mutableCopy];
+    // 1
+    ALAssetsLibrary *assetsLibrary = [PhotoCarouselViewController defaultAssetsLibrary];
+    // 2
+    [assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        if(group != nil) {
+            [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+                if(result)
+                {
+                    // 3
+//                    [tmpAssets addObject:result];
+                    AppRecord *appRecord = [[AppRecord alloc] init];
+                    appRecord.image=[UIImage imageWithCGImage:[result thumbnail]];
+                    [self.appRecordEntries addObject:appRecord];
+
+                }
+            }];
+        }
+        
+        // 4
+        //NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+        //self.assets = [tmpAssets sortedArrayUsingDescriptors:@[sort]];
+        //self.assets=tmpAssets;
+//        for (ALAsset *asset in tmpAssets){
+//            AppRecord *appRecord = [[AppRecord alloc] init];
+//            appRecord.image=[UIImage imageWithCGImage:[asset thumbnail]];
+//            [self.appRecordEntries addObject:appRecord];
+//            
+//        }
+        
+        
+        // 5
+        [self.collectionView reloadData];
+    } failureBlock:^(NSError *error) {
+        NSLog(@"Error loading images %@", error);
+    }];
+    
+
+    
     //Add a button over the collectionView
     button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button addTarget:self
@@ -135,7 +192,7 @@ static NSString * const reuseIdentifier = @"Cell";
  */
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(240, 240);
+    return CGSizeMake(CELL_WIDTH, CELL_HEIGHT);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
